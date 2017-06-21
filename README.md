@@ -6,6 +6,10 @@ ir related stuff - lirc remote configs, ir without lirc, ...
 
 ### Encode RAW to NEC
 
+_if you have a lirc remote file with raw data, you can simply use __irrecord -a remote_configfile.config__ to convert it to nec_
+
+#### Doing it by Hand:
+
 (https://blog.bschwind.com/2016/05/29/sending-infrared-commands-from-a-raspberry-pi-without-lirc/)
 
 I was thrilled to find this matches up very nicely with the NEC protocol! You can see the 9 ms pulse at the beginning, followed by the 4.5 ms gap. The script is off by several hundred microseconds but it's close enough to see what's going on. The next step is to convert this series of pulses to binary.
