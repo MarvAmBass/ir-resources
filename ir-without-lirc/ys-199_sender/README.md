@@ -24,4 +24,14 @@ pigio (https://github.com/joan2937/pigpio) is a library for this timing critical
 ## Usage
 
     sudo ir-nec-send <gpio_with_ir-diode> <binary_nec_code>
-    sudo ir-nec-send 3 10100100010001001001
+    sudo ir-nec-send 3 010001001011101111101000000101110
+
+## Side infos
+
+### ys-199 binary nec codes
+
+    BTN_1='010001001011101111110000000011110'
+    BTN_2='010001001011101101001000101101110'
+    BTN_3='010001001011101111101000000101110'
+    BTN_4='010001001011101110011000011001110'
+    BTN_5='010001001011101101111000100001110'
