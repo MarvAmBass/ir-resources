@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# this is a two 5 port hdmi switch configuration.
+# the second switch is connected to the 5. port of the first switch
+# this results in 9 different devices we can switch through
+
+# gpio pins with ir senders connected
+GPIO_FIRST_SWITCH_IR_SENDER='0'
+GPIO_SECOND_SWITCH_IR_SENDER='1'
+
+# command to use our ir-nec-send program
+NEC_SEND='sudo ir-nec-send'
+
+# nec codes if the buttons of the ys-119 in binary form
+BTN_1='010001001011101111110000000011110'
+BTN_2='010001001011101101001000101101110'
+BTN_3='010001001011101111101000000101110'
+BTN_4='010001001011101110011000011001110'
+BTN_5='010001001011101101111000100001110'
+
+echo "Switch to $1"
+
+case $1 in
+1)
+  $NEC_SEND $GPIO_FIRST_SWITCH_IR_SENDER $BTN_1
+  ;;
+2)
+  $NEC_SEND $GPIO_FIRST_SWITCH_IR_SENDER $BTN_2
+  ;;
+3)
+  $NEC_SEND $GPIO_FIRST_SWITCH_IR_SENDER $BTN_3
+  ;;
+4)
+  $NEC_SEND $GPIO_FIRST_SWITCH_IR_SENDER $BTN_4
+  ;;
+5)
+  $NEC_SEND $GPIO_FIRST_SWITCH_IR_SENDER $BTN_5
+  $NEC_SEND $GPIO_SECOND_SWITCH_IR_SENDER $BTN_1
+  ;;
+6)
+  $NEC_SEND $GPIO_FIRST_SWITCH_IR_SENDER $BTN_5
+  $NEC_SEND $GPIO_SECOND_SWITCH_IR_SENDER $BTN_2
+  ;;
+7)
+  $NEC_SEND $GPIO_FIRST_SWITCH_IR_SENDER $BTN_5
+  $NEC_SEND $GPIO_SECOND_SWITCH_IR_SENDER $BTN_3
+  ;;
+8)
+  $NEC_SEND $GPIO_FIRST_SWITCH_IR_SENDER $BTN_5
+  $NEC_SEND $GPIO_SECOND_SWITCH_IR_SENDER $BTN_4
+  ;;
+9)
+  $NEC_SEND $GPIO_FIRST_SWITCH_IR_SENDER $BTN_5
+  $NEC_SEND $GPIO_SECOND_SWITCH_IR_SENDER $BTN_5
+  ;;
+esac
