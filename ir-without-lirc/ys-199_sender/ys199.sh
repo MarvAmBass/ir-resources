@@ -5,11 +5,11 @@
 # this results in 9 different devices we can switch through
 
 # gpio pins with ir senders connected
-GPIO_FIRST_SWITCH_IR_SENDER='0'
-GPIO_SECOND_SWITCH_IR_SENDER='1'
+GPIO_FIRST_SWITCH_IR_SENDER='2'
+GPIO_SECOND_SWITCH_IR_SENDER='3'
 
 # command to use our ir-nec-send program
-NEC_SEND='sudo ir-nec-send'
+NEC_SEND='sudo ./ir-nec-send'
 
 # nec codes if the buttons of the ys-119 in binary form
 BTN_1='010001001011101111110000000011110'
